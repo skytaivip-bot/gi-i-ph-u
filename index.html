@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0f766e" />
+    <title>Giải Phẫu Lab - Ôn thực hành</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="topbar">
+        <a class="brand" href="#" aria-label="Giải Phẫu Lab - về đầu">
+          <span class="brand-mark">✦</span>
+          <span>Giải Phẫu <b>Lab</b></span>
+        </a>
+        <div class="streak" title="Kết quả trong phiên đang mở">
+          <span>✓</span><b id="streakValue">0</b><small>câu đúng</small>
+        </div>
+      </header>
+
+      <section class="hero">
+        <div>
+          <p class="eyebrow">ÔN THỰC HÀNH • CTUMP</p>
+          <h1>Nhìn hình, gọi đúng tên,<br /><em>nhớ theo cấu trúc.</em></h1>
+          <p class="hero-copy">Luyện nhận diện chi tiết giải phẫu từ hình mẫu có mũi tên. Mỗi câu trả lời đều đi kèm kiến thức cốt lõi.</p>
+        </div>
+        <div class="hero-progress">
+          <div class="ring"><b id="accuracyValue">—</b><span>độ chính xác</span></div>
+          <p><b id="totalCorrect">0</b> câu đúng phiên này</p>
+        </div>
+      </section>
+
+      <section class="controls" aria-label="Cài đặt buổi học">
+        <div class="mode-toggle" role="tablist" aria-label="Chế độ làm bài">
+          <button class="mode active" data-mode="choice" role="tab" aria-selected="true"><span>◉</span> Chọn trắc nghiệm</button>
+          <button class="mode" data-mode="typing" role="tab" aria-selected="false"><span>⌨</span> Điền đáp án</button>
+        </div>
+        <label class="select-wrap">Chuyên đề
+          <select id="topicSelect" aria-label="Chọn chuyên đề"></select>
+        </label>
+        <button id="shuffleBtn" class="ghost-btn" title="Đảo câu hỏi">↻ Đảo câu</button>
+      </section>
+
+      <section class="quiz-grid">
+        <article class="image-card">
+          <div class="image-header"><span id="topicBadge" class="topic-badge">Xương chi dưới</span><span id="questionCount">Câu 1 / 1</span></div>
+          <div class="figure-wrap">
+            <img id="anatomyImage" alt="Hình thực hành giải phẫu có các mũi tên đánh số" />
+            <div class="focus-bubble">Mũi tên số <b id="targetNumber">—</b></div>
+          </div>
+          <p class="figure-note">Quan sát đầu mũi tên trước khi trả lời. Có thể phóng to ảnh bằng cách nhấp vào ảnh.</p>
+        </article>
+
+        <article class="question-card" aria-live="polite">
+          <div class="question-meta"><span>NHẬN DIỆN CẤU TRÚC</span><span id="difficultyDots" aria-label="Độ khó">●●○</span></div>
+          <h2 id="prompt">Chi tiết được mũi tên số ? chỉ vào là gì?</h2>
+          <p class="helper">Chọn một phương án chính xác nhất.</p>
+          <div id="answerArea" class="answer-area"></div>
+          <button id="submitBtn" class="primary-btn" disabled>Kiểm tra đáp án <span>→</span></button>
+          <p class="keyboard-tip">Mẹo: dùng phím <kbd>1</kbd>–<kbd>4</kbd> để chọn, <kbd>Enter</kbd> để kiểm tra.</p>
+        </article>
+      </section>
+
+      <section id="feedback" class="feedback hidden" aria-live="assertive"></section>
+
+      <section class="study-strip">
+        <div><span class="strip-icon">◒</span><div><b>Ôn câu sai thông minh</b><p id="reviewText">Các câu chưa chắc sẽ tự lưu ở đây để bạn quay lại.</p></div></div>
+        <button id="reviewBtn" class="secondary-btn">Luyện câu sai <span id="mistakeCount">0</span></button>
+      </section>
+    </main>
+
+    <dialog id="imageDialog"><button id="closeDialog" aria-label="Đóng ảnh">×</button><img id="zoomImage" alt="Phóng to hình thực hành giải phẫu" /></dialog>
+    <script src="questions.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
